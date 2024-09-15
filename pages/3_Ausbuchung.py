@@ -80,6 +80,8 @@ if not filtered_df.empty:
 
     # Button zum Aktualisieren
     if st.sidebar.button("Produkt ausbuchen"):
+        # Alte Zeile aktualisieren (Status auf "outdated")
+        df.at[selected_index, "Status"] = f"outdated-{new_date}"
 
         # Neue Zeile erstellen (Status auf "current")
         new_row = selected_row.copy()
