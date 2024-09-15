@@ -60,6 +60,7 @@ for col in df_original.columns:
 
 # Drop columns from the merge that are not needed anymore
 df_original_updated = df_merged[df_original.columns]
+df_original_updated = df_original_updated.drop(columns=['id'])
 
 # Ausgabe des aktualisierten Datensatzes (optional)
 st.write("Aktualisierter Datensatz:")
