@@ -6,6 +6,7 @@ import plotly.express as px
 from st_pages import add_page_title, get_nav_from_toml
 
 st.set_page_config(layout="wide")
+
 # Get navigation from the TOML file
 nav = get_nav_from_toml("pages_sections.toml")
 # Streamlit logo and title

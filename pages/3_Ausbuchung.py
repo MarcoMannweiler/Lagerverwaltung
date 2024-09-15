@@ -58,7 +58,6 @@ if st.sidebar.button("Clear Filter"):
     # Reset filtered_df to the original DataFrame
     filtered_df = df.copy()
 
-
 # Anzeige des gefilterten DataFrames
 st.header("Gefilterte Vorgangsliste bzw. Logbuch OHNE outdated Vorgänge")
 st.write("alle outdated Zeilen sind ausgeblendet, da diese nicht mehr aktualisiert oder ausgebucht werden können - bei jeder Aktualisierung oder Ausbuchung werden neue Zeilen mit current-date erstellt")

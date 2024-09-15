@@ -1,4 +1,3 @@
-import px
 import streamlit as st
 import pandas as pd
 import os
@@ -11,19 +10,21 @@ name = "inventory.csv"
 df = get_dataframe(dateipfad=dateipfad, name=name)
 
 
-# Interaktiver Plot - Gestapeltes Balkendiagramm
-st.header("Interaktiver gestapelter Balkendiagramm")
+# Filterung der Zeilen nach Status und Vorgang
+filtered_df_gesamtpaid = df[(df['Status'].str.contains('current*')) &
+                 (df['Vorgang'].isin(['Einbuchung', 'Aktualisierung']))]
 
-# Auswahl der Spalten für die Achsen
-x_column = st.selectbox("Wählen Sie die Spalte für die X-Achse", df.columns, index=9)  # Standardmäßig 'Amount'
-color_column = st.selectbox("Wählen Sie die Spalte für die Farbgruppierung", df.columns, index=3)  # Standardmäßig 'Typ'
+# Berechnung der Summe der Spalte "Gesamtpreis paid"
+summe_gesamtpaid = filtered_df_gesamtpaid['Gesamtpreis paid'].sum()
 
-# Erstellen des gestapelten Balkendiagramms
-fig = px.bar(df,
-             x=x_column,
-             y='Storage location',
-             color=color_column,
-             orientation='h',  # Horizontaler Balken
-             title="Gestapeltes Balkendiagramm des Inventars")
+st.write(f"Die Summe beträgt: {summe_gesamtpaid}")
 
-st.plotly_chart(fig)
+
+# Filterung der Zeilen nach Status und Vorgang - Ausbuchung
+filtered_df_gesamtsold = df[(df['Status'].str.contains('current*')) &
+                 (df['Vorgang'].isin(['Ausbuchung']))]
+
+# Berechnung der Summe der Spalte "Gesamtpreis paid"
+summe_gesamtsold = filtered_df_gesamtsold['Gesamtpreis current value'].sum()
+
+st.write(f"Die Summe beträgt: {summe_gesamtsold}")
