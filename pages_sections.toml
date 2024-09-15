@@ -1,0 +1,39 @@
+[[pages]]
+name = "Eingabemasken"
+icon = "📩"
+is_section = true
+
+[[pages]]
+path = "pages/1_Einbuchung.py"
+name = "Einbuchung Produkt"
+icon = "➡️"
+
+[[pages]]
+path = "pages/2_Aktualisierung.py"
+name = "Aktualisierung Produktwert"
+icon = "🔄"
+
+[[pages]]
+path = "pages/3_Ausbuchung.py"
+name = "Ausbuchung Produkt"
+icon = "⬅️"
+
+[[pages]]
+name = "Overview"
+icon = "📊"
+is_section = true
+
+[[pages]]
+path = "pages/4_search_filter_edit.py"
+name = "Search / Filter / Edit"
+icon = "🔍"
+
+[[pages]]
+path = "pages/5_Auswertungen.py"
+name = "Auswertungen"
+icon = "📈"
+
+[[pages]]
+path = "pages/6_Lagerbestand.py"
+name = "Lagerbestand"
+icon = "🔋"
