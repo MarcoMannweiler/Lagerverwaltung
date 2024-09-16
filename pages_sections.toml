@@ -23,10 +23,7 @@ name = "Overview"
 icon = "📊"
 is_section = true
 
-[[pages]]
-path = "pages/4_search_filter_edit.py"
-name = "Search / Filter / Edit"
-icon = "🔍"
+
 
 [[pages]]
 path = "pages/5_Auswertungen.py"
@@ -37,3 +34,18 @@ icon = "📈"
 path = "pages/6_Lagerbestand.py"
 name = "Lagerbestand"
 icon = "🔋"
+
+[[pages]]
+name = "Edit"
+icon = "🛠️"
+is_section = true
+
+[[pages]]
+path = "pages/4_search_filter_edit.py"
+name = "Search / Filter / Edit"
+icon = "🔍"
+
+[[pages]]
+path = "pages/7_Delete rows.py"
+name = "Delete rows"
+icon = "🟥"
