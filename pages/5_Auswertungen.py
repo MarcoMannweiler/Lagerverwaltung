@@ -15,19 +15,19 @@ df['Date'] = pd.to_datetime(df['Date'])
 min_date = df['Date'].min().date()
 max_date = df['Date'].max().date()
 
-# Schieberegler für Start- und Enddatum
-start_date = st.slider("Startdatum", min_value=min_date, max_value=max_date, value=min_date)
-end_date = st.slider("Enddatum", min_value=min_date, max_value=max_date, value=max_date)
+# Eingabefelder für Start- und Enddatum
+start_date = st.date_input("Startdatum", value=min_date, min_value=min_date, max_value=max_date)
+end_date = st.date_input("Enddatum", value=max_date, min_value=min_date, max_value=max_date)
 
 # Sicherstellen, dass das Enddatum nicht vor dem Startdatum liegt
 if start_date > end_date:
     st.error("Das Enddatum darf nicht vor dem Startdatum liegen.")
 else:
-    # Konvertiere die Schieberegler-Auswahl zurück in pd.Timestamp
+    # Konvertiere die Datumauswahl in Timestamps
     start_date = pd.Timestamp(start_date)
     end_date = pd.Timestamp(end_date)
 
-    # Filtere den DataFrame basierend auf den ausgewählten Daten für den Balkendiagramm
+    # Filtere den DataFrame basierend auf den ausgewählten Daten für das Balkendiagramm
     filtered_df = df[(df['Date'] >= start_date) & (df['Date'] <= end_date)]
 
     # Filterung der Zeilen nach Status und Vorgang für Gesamtpreis paid
@@ -75,17 +75,18 @@ else:
 
     # Filterung der Zeilen für den Scatterplot: Verwende den gesamten DataFrame
     ausbuchung_df = df[df['Vorgang'] == 'Ausbuchung']
-    ausbuchung_df["Umsatz"]=-1*ausbuchung_df["Gesamtpreis current value"]
-    # Scatterplot: "Gesamtpreis paid" nach "Date" und "Brand"
+    ausbuchung_df["Umsatz"] = -1 * ausbuchung_df["Gesamtpreis current value"]
+
+    # Scatterplot: "Gesamtpreis current value" nach "Date" und "Brand"
     if not ausbuchung_df.empty:
         scatter_fig = px.scatter(ausbuchung_df,
-                                x='Date',
-                                y="Umsatz",
-                                color='Brand',
-                                title="Gesamtpreis current value nach Datum (Alles was ausgebucht wurde)",
-                                labels={'Gesamtpreis current value': 'Gesamtpreis current value', 'Date': 'Datum', 'Brand': 'Marke'},
-                                hover_name='Brand', # optional: Zeigt den Markennamen beim Hover an
-                                size_max=60) # optional: Maximale Größe der Punkte
+                                 x='Date',
+                                 y="Umsatz",
+                                 color='Brand',
+                                 title="Gesamtpreis current value nach Datum (Alles was ausgebucht wurde)",
+                                 labels={'Umsatz': 'Umsatz', 'Date': 'Datum', 'Brand': 'Marke'},
+                                 hover_name='Brand',  # optional: Zeigt den Markennamen beim Hover an
+                                 size_max=60)  # optional: Maximale Größe der Punkte
 
         # Scatterplot in Streamlit anzeigen
         st.plotly_chart(scatter_fig)
