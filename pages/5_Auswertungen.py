@@ -11,19 +11,19 @@ df = get_dataframe(dateipfad=dateipfad, name=name)
 # Konvertiere die 'Date'-Spalte in datetime
 df['Date'] = pd.to_datetime(df['Date'])
 
-# Bestimme den minimalen und maximalen Zeitraum und konvertiere in datetime.date
-min_date = df['Date'].min().date()
-max_date = df['Date'].max().date()
+# Bestimme den minimalen und maximalen Zeitraum und erzeuge eine Liste eindeutiger Datumswerte
+unique_dates = df['Date'].dt.date.unique()
+unique_dates.sort()
 
-# Eingabefelder für Start- und Enddatum
-start_date = st.date_input("Startdatum", value=min_date, min_value=min_date, max_value=max_date)
-end_date = st.date_input("Enddatum", value=max_date, min_value=min_date, max_value=max_date)
+# Verwende einen select_slider für Start- und Enddatum
+start_date = st.select_slider("Startdatum", options=unique_dates, value=unique_dates[0])
+end_date = st.select_slider("Enddatum", options=unique_dates, value=unique_dates[-1])
 
 # Sicherstellen, dass das Enddatum nicht vor dem Startdatum liegt
 if start_date > end_date:
     st.error("Das Enddatum darf nicht vor dem Startdatum liegen.")
 else:
-    # Konvertiere die Datumauswahl in Timestamps
+    # Konvertiere die ausgewählten Daten zurück in pd.Timestamp
     start_date = pd.Timestamp(start_date)
     end_date = pd.Timestamp(end_date)
 
@@ -86,7 +86,7 @@ else:
                                  title="Gesamtpreis current value nach Datum (Alles was ausgebucht wurde)",
                                  labels={'Umsatz': 'Umsatz', 'Date': 'Datum', 'Brand': 'Marke'},
                                  hover_name='Brand',  # optional: Zeigt den Markennamen beim Hover an
-                                 size_max=60)  # optional: Maximale Größe der Punkte
+                                 size_max=60)  # optionale maximale Größe der Punkte
 
         # Scatterplot in Streamlit anzeigen
         st.plotly_chart(scatter_fig)
