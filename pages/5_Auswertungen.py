@@ -7,15 +7,22 @@ from functions.get_dataframe import get_dataframe
 dateipfad = "data/"
 name = "inventory.csv"
 df = get_dataframe(dateipfad=dateipfad, name=name)
+st.write(df['Date'])
+# Versuche, die 'Date'-Spalte in gültige Datumswerte zu konvertieren, ungültige Einträge werden zu NaT
+df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+st.write(df['Date'])
+# Überprüfe, ob es ungültige Datumswerte (NaT) gibt und zeige eine Warnung an
+if df['Date'].isna().sum() > 0:
+    st.warning(f"Es wurden {df['Date'].isna().sum()} ungültige Datumswerte gefunden. Diese werden ignoriert.")
+    # Entferne Zeilen mit ungültigen Datumswerten (NaT)
+    df = df.dropna(subset=['Date'])
 
-# Konvertiere die 'Date'-Spalte in datetime
-df['Date'] = pd.to_datetime(df['Date'])
 
-# Bestimme die eindeutigen Datumswerte und sortiere sie
+# Bestimme die eindeutigen, gültigen Datumswerte und sortiere sie
 unique_dates = df['Date'].dt.date.unique()
 unique_dates.sort()
 
-# Überprüfen, ob es überhaupt Datumswerte gibt
+# Überprüfe, ob es überhaupt noch Datumswerte gibt, nachdem ungültige entfernt wurden
 if len(unique_dates) == 0:
     st.error("Keine gültigen Datumswerte im DataFrame gefunden.")
 else:
@@ -90,7 +97,7 @@ else:
                                      title="Gesamtpreis current value nach Datum (Alles was ausgebucht wurde)",
                                      labels={'Umsatz': 'Umsatz', 'Date': 'Datum', 'Brand': 'Marke'},
                                      hover_name='Brand',  # optional: Zeigt den Markennamen beim Hover an
-                                     size_max=60)  # optionale maximale Größe der Punkte
+                                     size_max=60)  # optional: Maximale Größe der Punkte
 
             # Scatterplot in Streamlit anzeigen
             st.plotly_chart(scatter_fig)
