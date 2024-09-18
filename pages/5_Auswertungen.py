@@ -8,7 +8,7 @@ dateipfad = "data/"
 name = "inventory.csv"
 df = get_dataframe(dateipfad=dateipfad, name=name)
 
-Konvertiere die 'Date'-Spalte in datetime
+#Konvertiere die 'Date'-Spalte in datetime
 df['Date'] = pd.to_datetime(df['Date'])
 
 # Bestimme den minimalen und maximalen Zeitraum und konvertiere in datetime.date
