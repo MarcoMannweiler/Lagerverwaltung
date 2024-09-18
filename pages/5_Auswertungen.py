@@ -7,10 +7,10 @@ from functions.get_dataframe import get_dataframe
 dateipfad = "data/"
 name = "inventory.csv"
 df = get_dataframe(dateipfad=dateipfad, name=name)
-st.write(df['Date'])
+
 # Versuche, die 'Date'-Spalte in gültige Datumswerte zu konvertieren, ungültige Einträge werden zu NaT
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
-st.write(df['Date'])
+
 # Überprüfe, ob es ungültige Datumswerte (NaT) gibt und zeige eine Warnung an
 if df['Date'].isna().sum() > 0:
     st.warning(f"Es wurden {df['Date'].isna().sum()} ungültige Datumswerte gefunden. Diese werden ignoriert.")
