@@ -58,10 +58,16 @@ if st.sidebar.button("Clear Filter"):
 
 
 # Anzeige des gefilterten DataFrames
-st.header("Gefilterte Vorgangsliste bzw. Logbuch OHNE outdated Vorgänge")
-st.write("alle outdated Zeilen sind ausgeblendet, da diese nicht mehr aktualisiert oder ausgebucht werden können - bei jeder Aktualisierung oder Ausbuchung werden neue Zeilen mit current-date erstellt")
-st.dataframe(filtered_df[filtered_df['Status'].str.contains(r'^current', case=False, na=False)])
+st.header("Liste des Lagerbestands")
+st.write("Alle outdated Zeilen (1), alle Ausbuchungen (2) und alle Zeilen mit Menge 0 (3) sind ausgeblendet, da diese nicht aktualisiert werden können - sie sind nicht auf Lager")
 
+filtered_df = filtered_df[
+    (filtered_df['Status'].str.contains(r'^current', case=False, na=False)) &  # Status enthält 'current'
+    (filtered_df['Amount'] != 0) &  # Amount ist nicht gleich 0
+    (~filtered_df['Vorgang'].str.contains('Ausbuchung', case=False, na=False))  # Vorgang enthält nicht 'Ausbuchung'
+]
+
+st.dataframe(filtered_df)
 
 # Auswahl einer Zeile aus dem gefilterten DataFrame
 if not filtered_df.empty:
@@ -95,7 +101,7 @@ if not filtered_df.empty:
         st.success("Das Produkt wurde erfolgreich aktualisiert.")
 
 # Aktuellen DataFrame anzeigen
-st.header("Aktuelle Vorgangsliste bzw. Logbuch")
+st.header("Aktualisiertes Logbuch")
 st.dataframe(df)
 
 ######################## Produkt aktualisieren - Filter #####################################

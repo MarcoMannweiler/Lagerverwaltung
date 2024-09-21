@@ -34,11 +34,10 @@ else:
         filtered_df = df[(df['Date'] >= start_date) & (df['Date'] <= end_date)]
 
         # Filterung der Zeilen nach Status und Vorgang für Gesamtpreis paid
-        filtered_df_gesamtpaid = filtered_df[(filtered_df['Status'].str.contains('current*')) &
-                                             (filtered_df['Vorgang'].isin(['Einbuchung', 'Aktualisierung']))]
+        filtered_df_gesamtpaid = filtered_df[(filtered_df['Status'].str.contains('current*'))]
 
         # Berechnung der Summe der Spalte "Gesamtpreis paid"
-        summe_gesamtpaid = filtered_df_gesamtpaid['Gesamtpreis paid'].sum()
+        summe_gesamtpaid = -filtered_df_gesamtpaid['Gesamtpreis paid'].sum()
 
         # Filterung der Zeilen nach Status und Vorgang für Gesamtpreis sold
         filtered_df_gesamtsold = filtered_df[(df['Status'].str.contains('current*')) &
@@ -49,6 +48,7 @@ else:
 
         # Berechnung der Summen nach "Brand" für paid und sold
         summe_paid_by_brand = filtered_df_gesamtpaid.groupby('Brand')['Gesamtpreis paid'].sum().reset_index()
+        summe_paid_by_brand["Gesamtpreis paid"] = -1 * summe_paid_by_brand["Gesamtpreis paid"]
         summe_sold_by_brand = filtered_df_gesamtsold.groupby('Brand')['Gesamtpreis current value'].sum().reset_index()
 
         # Zusammenführen der Datenframes für die Darstellung

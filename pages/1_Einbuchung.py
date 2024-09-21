@@ -11,7 +11,7 @@ df = get_dataframe(dateipfad=dateipfad, name=name)
 
 ######################## Neues Produkt anlegen #####################################
 ############################## Start ###############################################
-st.header("Vorgangsliste")
+st.header("Logbuch")
 
 placeholder = st.empty()
 
@@ -72,6 +72,7 @@ if st.sidebar.button("Eingabe speichern"):
 
     with placeholder.container():
         st.dataframe(df)
+
 
     # DataFrame in CSV-Datei speichern
     df.to_csv(dateipfad+name, index=False)
