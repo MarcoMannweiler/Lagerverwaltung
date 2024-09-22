@@ -1,0 +1,31 @@
+Date,Storage location,Brand,Typ,Serie,Set,Language,Edition,Definition,PSA,Amount,Price paid per unit (incl. MWST),Current value per unit,Vorgang,Gesamtpreis paid,Gesamtpreis current value,Status
+2024-09-21,Keller,YuGiOh,Collection Box,Gold,gross,Japanisch,Bronze,Verkauf,breit,13,5.0,15.0,Einbuchung,65.0,195.0,outdated-2024-10-24
+2024-10-23,Raum 1,Magic,Booster Box,Dark,normal,Englisch,Gold,Inventar,flach,6,15.0,17.5,Einbuchung,90.0,105.0,outdated-2024-09-21
+2024-10-29,Sammelmappe 1,Magic,Card,Dark,mittel,Deutsch,Silber,Verkauf,eben,14,20.0,22.5,Einbuchung,280.0,315.0,outdated-2024-10-23
+2024-10-29,Sammelmappe 1,Pokemon,Card,Platin,hoch,Japanisch,Gold,Verkauf,flach,30,5.0,8.5,Einbuchung,150.0,255.0,outdated-2024-12-25
+2024-11-14,Sammelmappe 1,One Piece,Card,Bronze,mittel,Englisch,Bronze,Verkauf,breit,4,25.0,34.5,Einbuchung,100.0,138.0,outdated-2024-09-21
+2024-11-21,Keller,One Piece,ETB,Gold,hoch,Englisch,Gold,Verkauf,mittel,10,50.0,65.5,Einbuchung,500.0,655.0,outdated-2024-10-23
+2024-09-21,Sammelmappe 1,One Piece,Card,Bronze,mittel,Englisch,Bronze,Verkauf,breit,4,25.0,36.5,Aktualisierung,100.0,146.0,current-2024-09-21
+2024-10-24,Keller,YuGiOh,Collection Box,Gold,gross,Japanisch,Bronze,Verkauf,breit,13,5.0,17.5,Aktualisierung,65.0,227.5,outdated-2024-11-14
+2024-11-14,Keller,YuGiOh,Collection Box,Gold,gross,Japanisch,Bronze,Verkauf,breit,13,5.0,19.5,Aktualisierung,65.0,253.5,outdated-2024-11-28
+2024-11-28,Keller,YuGiOh,Collection Box,Gold,gross,Japanisch,Bronze,Verkauf,breit,10,5.0,21.5,Ausbuchung,50.0,215.0,current-2024-11-28
+2024-11-28,Keller,YuGiOh,Collection Box,Gold,gross,Japanisch,Bronze,Verkauf,breit,3,5.0,21.5,Einbuchung,15.0,64.5,outdated-2024-09-21
+2024-09-21,Keller,YuGiOh,Collection Box,Gold,gross,Japanisch,Bronze,Verkauf,breit,3,5.0,23.5,Ausbuchung,15.0,70.5,current-2024-09-21
+2024-09-21,Keller,YuGiOh,Collection Box,Gold,gross,Japanisch,Bronze,Verkauf,breit,0,5.0,23.5,Einbuchung,0.0,0.0,current-2024-09-21
+2024-09-21,Raum 1,Magic,Booster Box,Dark,normal,Englisch,Gold,Inventar,flach,3,15.0,18.5,Ausbuchung,45.0,55.5,current-2024-09-21
+2024-09-21,Raum 1,Magic,Booster Box,Dark,normal,Englisch,Gold,Inventar,flach,3,15.0,18.5,Einbuchung,45.0,55.5,current-2024-09-21
+2024-10-23,Keller,One Piece,ETB,Gold,hoch,Englisch,Gold,Verkauf,mittel,5,50.0,75.0,Ausbuchung,250.0,375.0,current-2024-10-23
+2024-10-23,Keller,One Piece,ETB,Gold,hoch,Englisch,Gold,Verkauf,mittel,5,50.0,75.0,Einbuchung,250.0,375.0,current-2024-10-23
+2024-10-23,Sammelmappe 1,Magic,Card,Dark,mittel,Deutsch,Silber,Verkauf,eben,7,20.0,20.0,Ausbuchung,140.0,140.0,current-2024-10-23
+2024-10-23,Sammelmappe 1,Magic,Card,Dark,mittel,Deutsch,Silber,Verkauf,eben,7,20.0,20.0,Einbuchung,140.0,140.0,current-2024-10-23
+2024-12-19,Keller,MauMau,ETB,Gold,gross,Deutsch,Gold,mittel,breit,3,150.0,170.0,Einbuchung,450.0,510.0,current-2024-09-21
+2024-12-17,Raum 2,YuGiOh,Card,Ash,Silber,Japanisch,Bronze,Verkauf,mittel,5,50.0,70.0,Einbuchung,250.0,350.0,current-2024-09-21
+2024-09-21,Keller,Magic,Booster Pack,Gold,gross,Spanisch,Dark,Verkauf,klein,5,12.28,22.25,Einbuchung,61.4,111.25,current-2024-09-21
+2024-09-22,Keller,Pokemon,Card,Ash,Gold,Deutsch,Bronze,Verkauf,mittel,4,40.0,45.0,Einbuchung,160.0,180.0,outdated-2024-12-19
+2024-09-22,Sammelmappe 3,Pokemon,Card,Grün,Bronze,Japanisch,Gold,Verkauf,klein,5,15.0,18.5,Einbuchung,75.0,92.5,outdated-2024-12-19
+2024-12-19,Sammelmappe 3,Pokemon,Card,Grün,Bronze,Japanisch,Gold,Verkauf,klein,5,15.0,19.75,Aktualisierung,75.0,98.75,outdated-2024-09-22
+2024-12-19,Keller,Pokemon,Card,Ash,Gold,Deutsch,Bronze,Verkauf,mittel,4,40.0,48.0,Aktualisierung,160.0,192.0,current-2024-12-19
+2024-09-22,Sammelmappe 3,Pokemon,Card,Grün,Bronze,Japanisch,Gold,Verkauf,klein,3,15.0,22.0,Ausbuchung,45.0,66.0,current-2024-09-22
+2024-09-22,Sammelmappe 3,Pokemon,Card,Grün,Bronze,Japanisch,Gold,Verkauf,klein,2,15.0,22.0,Einbuchung,30.0,44.0,current-2024-09-22
+2024-12-25,Sammelmappe 1,Pokemon,Card,Platin,hoch,Japanisch,Gold,Verkauf,flach,25,5.0,9.5,Ausbuchung,125.0,237.5,current-2024-12-25
+2024-12-25,Sammelmappe 1,Pokemon,Card,Platin,hoch,Japanisch,Gold,Verkauf,flach,5,5.0,9.5,Einbuchung,25.0,47.5,current-2024-12-25
